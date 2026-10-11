@@ -5,159 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Suivi Graduate Développeur Web Full Stack</title>
   <style>
-    :root{
-      --bg:#f8fbff;--text:#162033;--muted:#667085;--card:#ffffff;--line:#dbe7ff;
-      --blue:#175cff;--cyan:#00a9e0;--violet:#7b2cff;--orange:#ff8a00;--pink:#ff4f9a;--green:#16a34a;
-      --shadow:0 16px 40px rgba(23,92,255,.12);--radius:22px;
-    }
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff 0,#eef6ff 42%,#fff7ed 100%);color:var(--text);line-height:1.5}
-    header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    .wrap{width:min(1150px,100%);margin:auto;padding:18px} h1{font-size:clamp(1.45rem,5vw,2.55rem);line-height:1.06;margin:0 0 8px}.subtitle{margin:0;color:var(--muted)}
-    .brand{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--pink));color:white;font-weight:900;font-size:.78rem;margin-bottom:12px}
-    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}.stat{background:white;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:var(--shadow)}.stat span{display:block;color:var(--muted);font-size:.78rem}.stat strong{font-size:1.02rem}
-    .progress-shell{height:18px;background:#e9eefb;border-radius:999px;overflow:hidden;margin-top:16px}.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--orange),var(--pink));transition:.25s}.progress-text{font-size:.9rem;color:var(--muted);margin:8px 0 0}
-    .toolbar{display:grid;gap:10px;margin:18px 0} input[type=search],select,textarea{width:100%;border:1px solid var(--line);border-radius:16px;padding:12px 14px;background:white;color:var(--text);font:inherit}button{border:0;border-radius:16px;padding:12px 14px;font-weight:900;color:white;background:linear-gradient(90deg,var(--blue),var(--violet));cursor:pointer}.secondary{background:#162033}.danger{background:#ef4444}
-    .layout{display:grid;gap:16px} details.week{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}summary{list-style:none;cursor:pointer;padding:16px}summary::-webkit-details-marker{display:none}.week-head{display:flex;justify-content:space-between;gap:10px}.week-title{margin:0 0 6px;font-size:1.05rem}.week-objective{margin:0;color:var(--muted)}.badge{white-space:nowrap;color:white;background:linear-gradient(90deg,var(--orange),var(--pink));padding:6px 10px;border-radius:999px;font-size:.76rem;font-weight:900}.week-body{padding:0 16px 16px;display:grid;gap:14px}.section{border:1px solid var(--line);border-radius:18px;background:#fbfdff;padding:14px}.section h3{margin:0 0 10px;color:#173a8a}.mini{font-size:.88rem;color:var(--muted);margin:0 0 10px}.list{display:grid;gap:8px}.check{display:grid;grid-template-columns:25px 1fr;gap:10px;align-items:start;background:white;border:1px solid #e7eefc;border-radius:14px;padding:10px}input[type=checkbox]{width:20px;height:20px;accent-color:var(--green);margin-top:2px}.days{display:grid;gap:12px}.day{background:white;border:1px solid #e7eefc;border-radius:18px;padding:14px}.day h4{margin:0 0 10px;color:#b45309}.path{font-size:.82rem;color:#475467;background:#f2f7ff;border-left:4px solid var(--blue);padding:8px 10px;border-radius:10px;margin:7px 0}.task-title{font-weight:900}.tag{display:inline-block;color:white;border-radius:999px;padding:3px 8px;font-size:.72rem;font-weight:900;margin-right:6px}.cours{background:var(--blue)}.atelier{background:var(--orange)}.dossier{background:var(--violet)}.notes{min-height:90px;resize:vertical}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.hidden{display:none!important} footer{text-align:center;color:var(--muted);padding:26px 18px 42px;font-size:.86rem}
-    @media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}.toolbar{grid-template-columns:1fr 230px 160px}.week-body{grid-template-columns:1fr 1fr}.full{grid-column:1/-1}.days{grid-template-columns:repeat(2,1fr)}}
+    :root{--bg:#fff7ed;--card:#fff;--ink:#1f2937;--muted:#667085;--blue:#2563eb;--violet:#7c3aed;--orange:#f97316;--pink:#db2777;--green:#16a34a;--line:#e5e7eb;--soft:#f8fafc;--radius:22px}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff7ed 0%,#f0f7ff 42%,#fdf2f8 100%);color:var(--ink)}header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.wrap{width:min(1120px,100%);margin:auto;padding:18px}h1{font-size:clamp(1.35rem,5vw,2.5rem);margin:0 0 8px;line-height:1.08}.subtitle{color:var(--muted);margin:0}.hero{background:linear-gradient(135deg,var(--blue),var(--violet) 55%,var(--orange));color:white;border-radius:28px;padding:22px;box-shadow:0 20px 60px rgba(37,99,235,.18)}.hero .subtitle{color:#eef2ff}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}.stat{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px}.stat span{display:block;font-size:.78rem;color:#eef2ff}.stat strong{font-size:1.05rem}.progress-shell{margin-top:16px;background:rgba(255,255,255,.28);height:18px;border-radius:999px;overflow:hidden}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#facc15,#fb7185);transition:.25s}.progress-text{font-weight:700;margin:8px 0 0}.toolbar{display:grid;gap:10px;margin:18px 0}.toolbar input,.toolbar select,textarea{width:100%;border:1px solid var(--line);background:white;border-radius:16px;padding:13px 14px;font:inherit;color:var(--ink)}button{border:0;border-radius:16px;padding:13px 14px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--violet));color:white}.secondary{background:#111827}.danger{background:#dc2626}.layout{display:grid;gap:16px}.week{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 10px 35px rgba(31,41,55,.08);overflow:hidden}summary{cursor:pointer;list-style:none;padding:16px}summary::-webkit-details-marker{display:none}.week-head{display:flex;gap:12px;justify-content:space-between;align-items:flex-start}.week-title{margin:0 0 6px;font-size:1.08rem}.week-objective{margin:0;color:var(--muted)}.badge{flex:0 0 auto;background:linear-gradient(135deg,#f97316,#db2777);color:white;border-radius:999px;padding:7px 11px;font-size:.78rem;font-weight:800}.week-body{display:grid;gap:14px;padding:0 16px 16px}.section{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:14px}.section h3{margin:0 0 10px;color:#1d4ed8}.check{display:grid;grid-template-columns:25px 1fr;gap:10px;background:white;border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0}.check input{width:20px;height:20px;accent-color:var(--green)}.days{display:grid;gap:12px}.day{border:1px solid var(--line);background:white;border-radius:18px;padding:14px}.day h4{margin:0 0 8px;color:#be123c}.path{background:#eff6ff;border-left:5px solid var(--blue);border-radius:14px;padding:10px;margin:8px 0;color:#1e3a8a;font-weight:750}.path small{display:block;color:#475569;font-weight:650;margin-bottom:3px}.task{background:#fff7ed;border-left:5px solid var(--orange);border-radius:14px;padding:10px;margin:8px 0}.dossier{background:#fdf2f8;border-left:5px solid var(--pink);border-radius:14px;padding:10px;margin:8px 0}.label{font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:3px}textarea{min-height:88px;resize:vertical}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.hidden{display:none!important}footer{text-align:center;color:var(--muted);padding:28px 18px 40px}@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}.toolbar{grid-template-columns:1fr 220px 160px}.week-body{grid-template-columns:1fr 1fr}.full{grid-column:1/-1}.days{grid-template-columns:repeat(2,1fr)}}
   </style>
 </head>
 <body>
-<header><div class="wrap"><span class="brand">STUDI • PLAN CLAIR</span><h1>Suivi Graduate Développeur Web Full Stack</h1><p class="subtitle">Chaque jour indique exactement où aller dans Studi + quoi produire pour AtelierFlow.</p><div class="stats"><div class="stat"><span>Heures faites</span><strong>61h14 / 380h</strong></div><div class="stat"><span>Retard actuel</span><strong>147h06</strong></div><div class="stat"><span>Jours restants</span><strong>109</strong></div><div class="stat"><span>Objectif journalier</span><strong>3h30 à 4h</strong></div></div><div class="progress-shell"><div id="progressBar" class="progress-bar"></div></div><p id="progressText" class="progress-text">0 % des tâches cochées.</p></div></header>
-<main class="wrap"><section class="toolbar"><input id="search" type="search" placeholder="Rechercher module, fichier, semaine…"><select id="filter"><option value="all">Toutes les semaines</option><option value="todo">Semaines non terminées</option><option value="done">Semaines terminées</option></select><button id="openAll" class="secondary" type="button">Ouvrir tout</button></section><section id="weeks" class="layout"></section><div class="actions"><button id="exportData" class="secondary" type="button">Exporter suivi</button><button id="resetData" class="danger" type="button">Réinitialiser</button></div></main><footer>Les coches restent dans ce navigateur. Cette version affiche le vrai chemin Studi : bloc → module → cours/fichier.</footer>
+<header><div class="wrap"><div class="hero"><h1>Suivi Graduate Développeur Web Full Stack</h1><p class="subtitle">Planning Studi exact + AtelierFlow + dossier projet. Chaque jour indique où aller dans Studi.</p><div class="stats"><div class="stat"><span>Heures faites</span><strong>61h14 / 380h</strong></div><div class="stat"><span>Retard actuel</span><strong>147h06</strong></div><div class="stat"><span>Jours restants</span><strong>109</strong></div><div class="stat"><span>Objectif</span><strong>3h30 à 4h/jour</strong></div></div><div class="progress-shell"><div id="progressBar" class="progress-bar"></div></div><p id="progressText" class="progress-text">0 % des tâches cochées.</p></div></div></header>
+<main class="wrap"><section class="toolbar"><input id="search" type="search" placeholder="Rechercher un cours, un PDF, une semaine…"><select id="filter"><option value="all">Toutes les semaines</option><option value="todo">Semaines non terminées</option><option value="done">Semaines terminées</option></select><button id="openAll" class="secondary" type="button">Ouvrir tout</button></section><section id="weeks" class="layout"></section><div class="actions"><button id="exportData" class="secondary" type="button">Exporter suivi</button><button id="resetData" class="danger" type="button">Réinitialiser</button></div></main><footer>Les coches et notes sont sauvegardées dans ce navigateur. Pense à exporter si tu changes de téléphone.</footer>
 <script>
 const plan=[
-{id:'w01',title:'Semaine 1 — 12/10 au 18/10',objective:'HTML/CSS clair + cadrage AtelierFlow.',days:[
-['Lundi','Développement front-end → Créer un site web avec HTML et CSS → introduction-html_web.pdf + syntaxe-generale-html_web.pdf','Lire les bases HTML puis créer index.html avec header, titre et tableau commandes.','Coller titre, résumé, introduction et contexte du projet.'],
-['Mardi','Développement front-end → Créer un site web avec HTML et CSS → langage-hypertexte_web.pdf + organisation-texte_web.pdf','Structurer la page AtelierFlow : sections, titres, paragraphes, liste des commandes.','Rédiger les objectifs de l’application.'],
-['Mercredi','Développement front-end → Créer un site web avec HTML et CSS → introduction-css_web.pdf + selecteurs-css_web.pdf + css3-stylage-texte_pdf.pdf','Styliser les cartes commandes : couleurs, statuts, boutons, lisibilité mobile.','Lister les utilisateurs : responsable, couturier, client, brodeur.'],
-['Jeudi','Développement front-end → Créer un site web avec HTML et CSS → mise-page-avec-css_pdf.pdf + struc-logiq-html5-mod-boi-css3_pdf.pdf','Organiser le tableau de bord avec cartes, colonnes et zones propres.','Écrire les fonctionnalités principales.'],
-['Vendredi','Développement front-end → Créer un site web avec HTML et CSS → creation-tableaux_pdf.pdf + creation-formulaires_web.pdf','Créer un tableau commandes + formulaire nouvelle commande.','Écrire les règles métier : urgence, pause, retard, paiement, brodeur.'],
-['Samedi','Développement front-end → Créer un site web avec HTML et CSS → responsive-design_web.pdf','Adapter la page mobile-first pour téléphone.','Faire captures propres pour le dossier.'],
-['Dimanche','Développement front-end → Créer un site web avec HTML et CSS → valider-qualite-site_web.pdf','Corriger HTML/CSS, vérifier lisibilité et navigation.','Bilan semaine + préparer semaine 2.']]},
-{id:'w02',title:'Semaine 2 — 19/10 au 25/10',objective:'Comprendre les bases de données et construire le MCD AtelierFlow.',days:[
-['Lundi','Back-end → Introduction aux bases de données → presentati-notion-base-donnees_pdf.pdf + appl-introduc-bases-donnees.pdf','Lister toutes les données AtelierFlow : clients, commandes, paiements, étapes.','Créer section Analyse des données.'],
-['Mardi','Back-end → Introduction aux bases de données → introd-modeli-concept-donn-uml.pdf + module_diagramme-classe-vf.pdf','Faire le premier schéma/MCD : Client, Commande, Paiement, Étape, User.','Expliquer les entités principales.'],
-['Mercredi','Back-end → Concevoir une base de données relationnelle → analyse_cahier_charges_mcd.pdf','Transformer le besoin AtelierFlow en modèle relationnel.','Ajouter le schéma dans le dossier.'],
-['Jeudi','Back-end → Introduction aux bases de données → introduct-passage-uml-relation.pdf + modele-relationnel-vs-objet.pdf','Définir clés primaires et relations entre tables.','Expliquer les relations.'],
-['Vendredi','Back-end → Introduction aux bases de données → module_introduction-langage-sql.pdf','Préparer les premières requêtes SQL CREATE TABLE.','Préparer captures des requêtes.'],
-['Samedi','Back-end → Créer et administrer une base de données en SQL → les-requetes-sql_papier.pdf','Créer jeu de données : clients, commandes, paiements fictifs.','Ajouter exemples SQL.'],
-['Dimanche','Back-end → Créer et administrer une base de données en SQL → les-fonctions-sql_web.pdf','Tester calcul reste à payer et filtrage commandes en retard.','Bilan BDD semaine 2.']]},
-{id:'w03',title:'Semaine 3 — 26/10 au 01/11',objective:'JavaScript débutant pour rendre l’interface vivante.',days:[
-['Lundi','Front-end → Débuter avec JavaScript → introduction-javascript_pdf.pdf + syntaxe-integration-js_web.pdf','Brancher app.js sur la page AtelierFlow.','Créer section Fonctionnalités prévues.'],
-['Mardi','Front-end → Débuter avec JavaScript → variables-js_web.pdf + types-donnees_web.pdf','Créer des variables commandes et statuts.','Écrire user stories client.'],
-['Mercredi','Front-end → Débuter avec JavaScript → operateurs_pdf.pdf + structures-controle-js_pdf.pdf','Changer affichage selon statut : en cours, retard, prêt.','Écrire user stories responsable.'],
-['Jeudi','Front-end → Débuter avec JavaScript → objet-javascript-string-array_pdf.pdf + objets-js_web.pdf','Créer tableau d’objets commandes fictives.','Écrire user stories couturier.'],
-['Vendredi','Front-end → Débuter avec JavaScript → fonctions-js_pdf.pdf','Créer fonctions : calcul reste à payer, statut retard.','Ajouter critères d’acceptation.'],
-['Samedi','Front-end → Débuter avec JavaScript → introduct-document-object-mode_pdf.pdf','Afficher les commandes dans le DOM.','Captures écran dynamique.'],
-['Dimanche','Front-end → Débuter avec JavaScript → projet-applica-form-dynamiq-js_web.pdf','Faire mini formulaire dynamique.','Bilan semaine.']]},
-{id:'w04',title:'Semaine 4 — 02/11 au 08/11',objective:'JavaScript avancé : événements, JSON, AJAX, debug.',days:[
-['Lundi','Front-end → Programmer avec Javascript → javascript-events_pdf.pdf','Ajouter boutons : démarrer, pause, terminer étape.','Décrire parcours couturier.'],
-['Mardi','Front-end → Programmer avec Javascript → format-json-ajax_web.pdf','Préparer structure JSON des commandes.','Décrire échanges de données prévus.'],
-['Mercredi','Front-end → Programmer avec Javascript → fonction-asynchrone-callback_web.pdf','Simuler chargement des commandes.','Noter limites de la version front seule.'],
-['Jeudi','Front-end → Programmer avec Javascript → promesses_pdf.pdf','Préparer logique future API/back-end.','Mettre à jour architecture cible.'],
-['Vendredi','Front-end → Programmer avec Javascript → gestion-erreur_pdf.pdf + debug_pdf.pdf','Gérer erreurs formulaire et debug console.','Écrire partie qualité/correction.'],
-['Samedi','Front-end → Projet fil rouge - Développement front-end → dynamiser-partie-front_pdf.pdf','Relier JavaScript au projet AtelierFlow.','Captures + extraits de code.'],
-['Dimanche','Front-end → Programmer avec Javascript → bonnes-pratiques-programmat-js_web.pdf','Nettoyer code JS.','Bilan semaine JS.']]},
-{id:'w05',title:'Semaine 5 — 09/11 au 15/11',objective:'Git/GitHub + organisation propre du projet.',days:[
-['Lundi','Front-end → Utiliser Git et Github pour gérer son code source → bases_pdf.pdf','Initialiser ou nettoyer le dépôt AtelierFlow.','Décrire environnement Git.'],
-['Mardi','Front-end → Utiliser Git et Github pour gérer son code source → bonnes-pratiques_pdf.pdf','Faire commits clairs par fonctionnalité.','Ajouter méthode de versionnement.'],
-['Mercredi','Front-end → Utiliser Git et Github pour gérer son code source → gestion-branches_web.pdf','Créer branche feature/front-dashboard.','Expliquer branches et commits.'],
-['Jeudi','Fondamentaux → Écosystème et outils du développeur → vscode_pdf.pdf','Organiser dossiers : front, back, docs, captures.','Décrire VS Code et outils.'],
-['Vendredi','Fondamentaux → Écosystème et outils du développeur → preparation-environnement-trav_web.pdf','Préparer README et consignes installation.','Rédiger environnement technique.'],
-['Samedi','Front-end → Créer un site web avec HTML et CSS → referencement-sites-web_web.pdf','Ajouter métadonnées et structure propre.','Noter accessibilité/qualité.'],
-['Dimanche','Fondamentaux → Écosystème et outils du développeur → sensibilisation-rgpd_web.pdf','Lister données personnelles traitées.','Préparer partie RGPD/sécurité.']]},
-{id:'w06',title:'Semaine 6 — 16/11 au 22/11',objective:'PHP : bases dynamiques.',days:[
-['Lundi','Back-end → Développer des sites web dynamiques avec PHP → php-organisation_papier.pdf','Préparer structure PHP du projet.','Créer section développement back-end.'],
-['Mardi','Back-end → Développer des sites web dynamiques avec PHP → php-html-sorties_papier.pdf','Afficher une liste de commandes en PHP.','Expliquer rendu serveur.'],
-['Mercredi','Back-end → Développer des sites web dynamiques avec PHP → conditions_pdf.pdf','Afficher badges selon statut.','Ajouter exemple condition.'],
-['Jeudi','Back-end → Développer des sites web dynamiques avec PHP → boucles_pdf.pdf','Afficher commandes avec boucle.','Ajouter extrait code.'],
-['Vendredi','Back-end → Développer des sites web dynamiques avec PHP → fonctions_web.pdf','Créer fonctions de calcul paiement et retard.','Documenter logique métier.'],
-['Samedi','Back-end → Développer des sites web dynamiques avec PHP → tableaux_pdf.pdf','Manipuler tableaux commandes.','Captures back-end.'],
-['Dimanche','Back-end → Développer des sites web dynamiques avec PHP → gestion-erreur_web.pdf','Gérer erreurs simples formulaire.','Bilan PHP semaine 1.']]},
-{id:'w07',title:'Semaine 7 — 23/11 au 29/11',objective:'PHP + SQL ensemble.',days:[
-['Lundi','Back-end → Créer et administrer une base de données en SQL → les-requetes-sql_papier.pdf','Connecter PHP aux tables commandes/clients.','Décrire CRUD.'],
-['Mardi','Back-end → Développer des sites web dynamiques avec PHP → modele-mvc.pdf','Séparer logique : routes/contrôleurs/vues simples.','Expliquer organisation MVC.'],
-['Mercredi','Back-end → Développer des sites web dynamiques avec PHP → securite_web.pdf','Sécuriser formulaires PHP.','Ajouter sécurité formulaires.'],
-['Jeudi','Back-end → Créer et administrer une base de données en SQL → les-fonctions-sql_web.pdf','Calculer paiements et retards côté SQL/PHP.','Ajouter captures requêtes.'],
-['Vendredi','Back-end → Créer et administrer une base de données en SQL → decouverte-orm-php_pdf.pdf','Comprendre ORM avant Symfony.','Préparer transition Symfony.'],
-['Samedi','Back-end → Développer des sites web dynamiques avec PHP → manipulation-dates_web.pdf','Gérer date de livraison et retard.','Documenter règle retard.'],
-['Dimanche','Back-end → Développer des sites web dynamiques avec PHP → expressions-regulieres_web.pdf','Valider téléphone/email client si utilisé.','Bilan PHP/SQL.']]},
-{id:'w08',title:'Semaine 8 — 30/11 au 06/12',objective:'Symfony : démarrer le vrai projet back-end.',days:[
-['Lundi','Back-end → Créer une application web avec le framework Symfony → bases-symfony-vf.pdf','Créer projet Symfony AtelierFlow.','Expliquer choix Symfony.'],
-['Mardi','Back-end → Créer une application web avec le framework Symfony → modele-mvc (1).pdf','Comprendre architecture MVC Symfony.','Ajouter architecture application.'],
-['Mercredi','Back-end → Créer une application web avec le framework Symfony → le-routing.pdf','Créer routes tableau de bord, commandes, clients.','Documenter routes.'],
-['Jeudi','Back-end → Créer une application web avec le framework Symfony → controleurs-vf.pdf','Créer contrôleurs principaux.','Ajouter extraits contrôleur.'],
-['Vendredi','Back-end → Créer une application web avec le framework Symfony → entites-vf.pdf','Créer entités Client, Commande, Paiement, Etape.','Documenter entités.'],
-['Samedi','Back-end → Créer une application web avec le framework Symfony → moteur-templat-twig.pdf','Créer vues Twig.','Captures vues.'],
-['Dimanche','Back-end → Créer une application web avec le framework Symfony → profiler-vf.pdf','Utiliser profiler pour vérifier.','Bilan Symfony démarrage.']]},
-{id:'w09',title:'Semaine 9 — 07/12 au 13/12',objective:'Symfony : logique métier et rôles.',days:[
-['Lundi','Back-end → Créer une application web avec le framework Symfony → validation-symfony.pdf','Valider formulaires commandes/paiements.','Écrire validations métier.'],
-['Mardi','Back-end → Projet fil rouge - Développement back-end → securiser-acces-donnees_pdf.pdf','Préparer rôles responsable/couturier/client.','Décrire droits utilisateurs.'],
-['Mercredi','Back-end → Créer une application web avec le framework Symfony → event-dispatcher-vf.pdf','Préparer événements : commande prête/retard.','Décrire notifications prévues.'],
-['Jeudi','Back-end → Créer une application web avec le framework Symfony → composant-mailer.pdf','Préparer email ou message commande prête.','Documenter communication client.'],
-['Vendredi','Back-end → Projet fil rouge - Développement back-end → documenter-api_pdf.pdf','Documenter routes/API si utilisées.','Ajouter documentation technique.'],
-['Samedi','Back-end → Projet fil rouge - Développement back-end → tester-application-web_pdf.pdf','Tester parcours responsable/couturier/client.','Préparer tableau de tests.'],
-['Dimanche','Back-end → Créer une application web avec le framework Symfony → révision entités/routes/contrôleurs','Stabiliser la version Symfony.','Bilan semaine.']]},
-{id:'w10',title:'Semaine 10 — 14/12 au 20/12',objective:'Sécurité application et base de données.',days:[
-['Lundi','Front-end → Sécuriser ses applications web → principales-failles-securite_pdf.pdf','Lister risques AtelierFlow.','Créer partie Sécurité.'],
-['Mardi','Front-end → Sécuriser ses applications web → anal-secur-eval-vulner-app-web_pdf.pdf','Analyser vulnérabilités de l’app.','Ajouter tableau risques/mesures.'],
-['Mercredi','Back-end → Sécuriser ses bases de données → failles-xss_pdf.pdf','Vérifier affichage sécurisé des données.','Documenter XSS.'],
-['Jeudi','Back-end → Sécuriser ses bases de données → failles-liees-bdd-cote-develop_web.pdf','Vérifier requêtes et accès données.','Documenter injections/accès.'],
-['Vendredi','Back-end → Sécuriser ses bases de données → cadre-legal-chiffrement-donnee_web.pdf','Lister données personnelles et protection.','Ajouter RGPD/chiffrement.'],
-['Samedi','Back-end → Sécuriser ses bases de données → attaque-brute-force_pdf.pdf','Réfléchir limitation tentatives connexion.','Ajouter authentification.'],
-['Dimanche','Front-end → Sécuriser ses applications web → securiser-publica-applicat-web_web.pdf','Préparer sécurité avant publication.','Bilan sécurité.']]},
-{id:'w11',title:'Semaine 11 — 21/12 au 27/12',objective:'Tests et fiabilisation.',days:[
-['Lundi','Back-end → Préparer un environnement de test → bases-environnement-test-web.pdf','Définir environnement de test.','Créer partie Tests.'],
-['Mardi','Back-end → Préparer un environnement de test → methode-agile-develop-logiciel_pdf.pdf','Organiser scénarios de test utilisateur.','Créer tableau tests.'],
-['Mercredi','Back-end → Préparer un environnement de test → mise-place-integration-continu_pdf.pdf','Vérifier GitHub Actions si utile.','Documenter CI.'],
-['Jeudi','Front-end → Sécuriser une application web - failles tests et déploiement → guides-tests_web.pdf si disponible','Tester création commande/paiement/statut.','Remplir résultats attendus/obtenus.'],
-['Vendredi','Back-end → Préparer un environnement de test → demarche-devops_web.pdf','Corriger bugs importants.','Noter corrections.'],
-['Samedi','Back-end → Préparer un environnement de test → mise-place-livraison-cd_pdf.pdf','Préparer livraison/démo.','Captures tests.'],
-['Dimanche','Back-end → Projet fil rouge - Développement back-end → tester-application-web_pdf.pdf','Refaire test complet.','Bilan tests.']]},
-{id:'w12',title:'Semaine 12 — 28/12 au 03/01',objective:'Déploiement.',days:[
-['Lundi','Front-end → Déployer son application web → presentation-utilis-planethost_pdf.pdf','Comparer option hébergement.','Créer partie Déploiement.'],
-['Mardi','Front-end → Déployer son application web → presentation-utilisatio-fly-io_pdf.pdf','Préparer variables environnement.','Documenter prérequis.'],
-['Mercredi','Front-end → Déployer une application web sur les plateformes modernes → module.pdf','Préparer déploiement moderne.','Écrire étapes déploiement.'],
-['Jeudi','Back-end → Sécuriser son infrastructure → mise-place-environ-pre-product_pdf.pdf','Préparer environnement pré-production.','Ajouter schéma environnement.'],
-['Vendredi','Back-end → Sécuriser son infrastructure → utilis-environ-test-pre-produc_web.pdf','Tester sur environnement proche prod.','Captures déploiement.'],
-['Samedi','Front-end → Créer un site web avec HTML et CSS → deployer-site-web_web.pdf','Vérifier mise en ligne front si utile.','Ajouter URL si disponible.'],
-['Dimanche','Back-end → Sécuriser son infrastructure → mis-jour-docum-techn-apre-test_web.pdf','Mettre à jour documentation technique.','Bilan déploiement.']]},
-{id:'w13',title:'Semaine 13 — 04/01 au 10/01',objective:'Docker et infrastructure si possible.',days:[
-['Lundi','Front-end → Gérer des conteneurs → outil-docker-principe-objectif_web.pdf','Comprendre Docker pour le projet.','Ajouter note Docker optionnelle.'],
-['Mardi','Front-end → Gérer des conteneurs → dockerfile-instructions_pdf.pdf','Écrire Dockerfile si possible.','Documenter Dockerfile.'],
-['Mercredi','Front-end → Gérer des conteneurs → docker-compose-introduction_web.pdf','Préparer docker-compose app + base.','Ajouter architecture conteneurs.'],
-['Jeudi','Front-end → Gérer des conteneurs → docker-compose-etude-cas_web.pdf','Tester environnement local.','Captures si ça marche.'],
-['Vendredi','Front-end → Conteneuriser une application avec Docker → orchestration_docker_compose.pdf','Améliorer compose.','Documenter limites.'],
-['Samedi','Front-end → Conteneuriser une application avec Docker → publication_images_registre.pdf','Comprendre publication image.','Écrire évolution possible.'],
-['Dimanche','Front-end → Conteneuriser une application avec Docker → gestion_cycle_vie_conteneurs.pdf','Réviser cycle de vie.','Bilan Docker.']]},
-{id:'w14',title:'Semaine 14 — 11/01 au 17/01',objective:'Finaliser application + dossier.',days:[
-['Lundi','Révision ciblée → Git/GitHub + HTML/CSS + JS','Nettoyer interface finale.','Relire introduction/contexte.'],
-['Mardi','Révision ciblée → SQL + MCD','Vérifier données et schéma.','Finaliser analyse données.'],
-['Mercredi','Révision ciblée → PHP/Symfony','Stabiliser routes et formulaires.','Finaliser développement back-end.'],
-['Jeudi','Révision ciblée → Sécurité','Vérifier droits client/couturier/responsable.','Finaliser sécurité.'],
-['Vendredi','Révision ciblée → Tests','Faire scénario complet de démo.','Finaliser tableau tests.'],
-['Samedi','Révision ciblée → Déploiement','Vérifier lien, README, captures.','Finaliser déploiement.'],
-['Dimanche','Réussir ma formation → Se préparer aux examens → metho-doss-proj-devel-web-mobi_web.pdf','Préparer dossier final.','Relire tout le dossier.']]},
-{id:'w15',title:'Semaine 15 — 18/01 au 24/01',objective:'Oral, démonstration et corrections.',days:[
-['Lundi','Réussir ma formation → Se préparer aux examens → entraine-question-professionne_pdf.pdf','Préparer questions jury.','Créer plan oral.'],
-['Mardi','Réussir ma formation → Se préparer aux examens → methodo-dp_web.pdf','Vérifier DP séparé du dossier projet.','Noter éléments DP.'],
-['Mercredi','Competences360 → Réussir vos épreuves avec votre Coach IA examen → reussir_epreuves_avec_coach_ia_examen.pdf','Préparer entraînement oral avec IA.','Corriger formulation.'],
-['Jeudi','Révision ciblée → Projet complet','Faire démo chronométrée.','Noter blocages.'],
-['Vendredi','Révision ciblée → Projet complet','Corriger derniers bugs visibles.','Mettre à jour captures.'],
-['Samedi','Révision ciblée → Oral','Répéter présentation sans lire.','Préparer réponses.'],
-['Dimanche','Révision finale','Repos actif + relecture légère.','Bilan final.']]},
-{id:'w16',title:'Semaine courte — 25/01 au 29/01',objective:'Marge de sécurité.',days:[
-['Lundi','Réussir ma formation → Se préparer aux examens → metho-doss-proj-devel-web-mobi_web.pdf','Vérifier dossier projet final.','Export PDF.'],
-['Mardi','Révision ciblée → Démo','Tester démo depuis zéro.','Préparer procédure installation.'],
-['Mercredi','Révision ciblée → GitHub','Vérifier README, commits, liens.','Dernières corrections.'],
-['Jeudi','Révision ciblée → Oral','Répétition finale.','Préparer annexes.'],
-['Vendredi','Révision finale','Aucun gros changement sauf urgence.','Sauvegarder tous les fichiers.']]}
+{id:'w01',title:'Semaine 1 — 12/10 au 18/10',objective:'HTML/CSS + cadrage clair du projet AtelierFlow.',todo:['Finaliser résumé, introduction, contexte et objectifs','Créer première page HTML/CSS AtelierFlow','Préparer les écrans tableau de bord et détail commande'],days:[
+['Lundi','Développer la partie front-end → Créer un site web avec HTML et CSS → introduction-html_web.pdf + syntaxe-generale-html_web.pdf','Créer index.html AtelierFlow : header, titre, zone tableau commandes','Copier titre, résumé, introduction et contexte dans le dossier projet'],
+['Mardi','Développer la partie front-end → Créer un site web avec HTML et CSS → langage-hypertexte_web.pdf + organisation-texte_web.pdf','Structurer la page : sections, titres, paragraphes, tableau des commandes','Rédiger les objectifs de l’application'],
+['Mercredi','Développer la partie front-end → Créer un site web avec HTML et CSS → introduction-css_web.pdf + selecteurs-css_web.pdf','Mettre les premières couleurs, cartes et boutons AtelierFlow','Lister les utilisateurs : responsable, couturier, client, brodeur'],
+['Jeudi','Développer la partie front-end → Créer un site web avec HTML et CSS → css3-stylage-texte_pdf.pdf','Travailler la lisibilité : titres, textes, badges de statut','Rédiger les fonctionnalités principales'],
+['Vendredi','Développer la partie front-end → Créer un site web avec HTML et CSS → mise-page-avec-css_pdf.pdf','Mettre en page dashboard, carte commande et fiche détail','Rédiger les règles métier : urgence, retard, pause, paiement'],
+['Samedi','Développer la partie front-end → Créer un site web avec HTML et CSS → responsive-design_web.pdf','Adapter l’interface au mobile','Faire des captures pour le dossier'],
+['Dimanche','Les fondamentaux du développement → Introduction à la programmation → module_introduction-programmation.pdf','Relire et nettoyer le code HTML/CSS','Faire le bilan de la semaine et noter les blocages']]
+},
+{id:'w02',title:'Semaine 2 — 19/10 au 25/10',objective:'Comprendre la base de données et construire le modèle AtelierFlow.',todo:['Faire le MCD', 'Définir les tables', 'Créer premières requêtes SQL'],days:[
+['Lundi','Développer la partie back-end → Introduction aux bases de données → presentati-notion-base-donnees_pdf.pdf','Lister toutes les données AtelierFlow : client, commande, paiement, étape','Créer la partie analyse des données'],
+['Mardi','Développer la partie back-end → Introduction aux bases de données → modele-relationnel-vs-objet.pdf','Identifier entités et relations','Expliquer pourquoi chaque table existe'],
+['Mercredi','Développer la partie back-end → Introduction aux bases de données → introd-modeli-concept-donn-uml.pdf + module_diagramme-classe-vf.pdf','Faire le premier MCD / diagramme','Insérer le schéma dans le dossier'],
+['Jeudi','Développer la partie back-end → Introduction aux bases de données → introduct-passage-uml-relation.pdf','Transformer le MCD en tables relationnelles','Expliquer les clés primaires et étrangères'],
+['Vendredi','Développer la partie back-end → Créer et administrer une base de données en SQL → les-requetes-sql_papier.pdf','Écrire CREATE TABLE clients, commandes, paiements, étapes','Ajouter captures SQL'],
+['Samedi','Développer la partie back-end → Introduction aux bases de données → module_introduction-langage-sql.pdf','Tester INSERT et SELECT','Ajouter un jeu de données exemple'],
+['Dimanche','Développer la partie back-end → Concevoir une base de données relationnelle → analyse_cahier_charges_mcd.pdf + Application - Concevoir un.pdf','Corriger MCD et tables','Bilan semaine 2']]
+},
+{id:'w03',title:'Semaine 3 — 26/10 au 01/11',objective:'JavaScript débutant pour rendre l’interface vivante.',todo:['Afficher données fictives', 'Changer statuts', 'Calculer reste à payer'],days:[
+['Lundi','Développer la partie front-end → Débuter avec JavaScript → introduction-javascript_pdf.pdf + syntaxe-integration-js_web.pdf','Ajouter un fichier app.js et connecter à la page','Créer section fonctionnalités prévues'],
+['Mardi','Développer la partie front-end → Débuter avec JavaScript → variables-js_web.pdf + types-donnees_web.pdf','Créer variables commande, client, statut, montant','Écrire user stories client'],
+['Mercredi','Développer la partie front-end → Débuter avec JavaScript → operateurs_pdf.pdf + structures-controle-js_pdf.pdf','Afficher retard si date dépassée','Écrire user stories responsable'],
+['Jeudi','Développer la partie front-end → Débuter avec JavaScript → objet-javascript-string-array_pdf.pdf','Créer tableau de commandes fictives','Écrire user stories couturier'],
+['Vendredi','Développer la partie front-end → Débuter avec JavaScript → fonctions-js_pdf.pdf','Créer fonction calcul du reste à payer','Ajouter critères d’acceptation'],
+['Samedi','Développer la partie front-end → Débuter avec JavaScript → introduct-document-object-mode_pdf.pdf','Afficher les commandes dans le DOM','Captures écran dynamiques'],
+['Dimanche','Développer la partie front-end → Débuter avec JavaScript → projet-applica-form-dynamiq-js_web.pdf','Faire une mini démo JS','Bilan semaine 3']]
+},
+{id:'w04',title:'Semaine 4 — 02/11 au 08/11',objective:'JavaScript avancé utile pour l’interface.',todo:['Événements', 'JSON/AJAX', 'Debug', 'localStorage si besoin'],days:[
+['Lundi','Développer la partie front-end → Programmer avec Javascript → javascript-events_pdf.pdf','Boutons démarrer, pause, terminer une étape','Décrire le parcours utilisateur'],
+['Mardi','Développer la partie front-end → Programmer avec Javascript → js-brows-wind-scree-locat-hist_web.pdf','Créer navigation simple entre dashboard et détail commande','Compléter parcours client'],
+['Mercredi','Développer la partie front-end → Programmer avec Javascript → format-json-ajax_web.pdf','Préparer structure JSON des commandes','Expliquer données échangées front/back'],
+['Jeudi','Développer la partie front-end → Programmer avec Javascript → promesses_pdf.pdf + fonction-asynchrone-callback_web.pdf','Préparer logique de chargement asynchrone','Noter limites de la version front seule'],
+['Vendredi','Développer la partie front-end → Programmer avec Javascript → gestion-erreur_pdf.pdf + debug_pdf.pdf','Corriger erreurs JS avec console','Ajouter partie tests front simples'],
+['Samedi','Développer la partie front-end → Programmer avec Javascript → bonnes-pratiques-programmat-js_web.pdf','Nettoyer le code JS','Faire captures code propre'],
+['Dimanche','Développer la partie front-end → Projet fil rouge - Développement front-end → dynamiser-partie-front_pdf.pdf','Assembler une version front cohérente','Bilan semaine 4']]
+},
+{id:'w05',title:'Semaine 5 — 09/11 au 15/11',objective:'Git/GitHub et organisation projet.',todo:['Repo propre', 'README', 'commits réguliers'],days:[
+['Lundi','Développer la partie front-end → Utiliser Git et Github pour gérer son code source → bases_pdf.pdf','Initialiser/organiser le dépôt AtelierFlow','Décrire environnement de travail'],
+['Mardi','Développer la partie front-end → Utiliser Git et Github pour gérer son code source → bonnes-pratiques_pdf.pdf','Faire commits propres par fonctionnalité','Expliquer méthode de versionnement'],
+['Mercredi','Développer la partie front-end → Utiliser Git et Github pour gérer son code source → gestion-branches_web.pdf','Créer branche de test si utile','Ajouter capture GitHub'],
+['Jeudi','Développer la partie front-end → Participer à des projets web → environnement-developpeur-web_web.pdf','Lister outils : VS Code, GitHub, navigateur, Figma','Compléter environnement technique'],
+['Vendredi','Développer la partie front-end → Participer à des projets web → bien-rediger-user-stories_web.pdf','Reprendre les user stories AtelierFlow','Améliorer les critères d’acceptation'],
+['Samedi','Développer la partie front-end → Participer à des projets web → collecter-besoin-du-projet_papier.pdf','Formaliser besoin atelier de couture','Compléter contexte et besoin'],
+['Dimanche','Développer la partie front-end → Participer à des projets web → recit-utilisateur_web.pdf','Relier besoins aux fonctionnalités','Bilan semaine 5']]
+},
+{id:'w06',title:'Semaine 6 — 16/11 au 22/11',objective:'PHP bases.',todo:['Pages PHP', 'Formulaires', 'Organisation back'],days:[
+['Lundi','Développer la partie back-end → Développer des sites web dynamiques avec PHP → php-organisation_papier.pdf','Créer structure PHP du projet','Décrire rôle du back-end'],
+['Mardi','Développer la partie back-end → Développer des sites web dynamiques avec PHP → php-html-sorties_papier.pdf','Afficher des commandes via PHP','Ajouter exemple PHP'],
+['Mercredi','Développer la partie back-end → Développer des sites web dynamiques avec PHP → conditions_pdf.pdf','Gérer statuts et retards côté PHP','Expliquer conditions métier'],
+['Jeudi','Développer la partie back-end → Développer des sites web dynamiques avec PHP → boucles_pdf.pdf + tableaux_pdf.pdf','Afficher liste commandes depuis tableau PHP','Capture affichage liste'],
+['Vendredi','Développer la partie back-end → Développer des sites web dynamiques avec PHP → fonctions_web.pdf','Créer fonctions calcul reste à payer / statut retard','Ajouter extrait de code'],
+['Samedi','Développer la partie back-end → Développer des sites web dynamiques avec PHP → manipulation-dates_web.pdf','Comparer dates de livraison','Expliquer gestion retard'],
+['Dimanche','Développer la partie back-end → Développer des sites web dynamiques avec PHP → gestion-erreur_web.pdf','Gérer erreurs simples','Bilan semaine 6']]
+},
+{id:'w07',title:'Semaine 7 — 23/11 au 29/11',objective:'PHP + SQL ensemble.',todo:['Connexion BDD', 'CRUD', 'Paiements'],days:[
+['Lundi','Développer la partie back-end → Créer et administrer une base de données en SQL → les-requetes-sql_papier.pdf','Connecter PHP à la base','Décrire CRUD'],
+['Mardi','Développer la partie back-end → Créer et administrer une base de données en SQL → les-fonctions-sql_web.pdf','Créer requêtes calculs / filtres','Ajouter exemples SQL'],
+['Mercredi','Développer la partie back-end → Créer et administrer une base de données en SQL → decouverte-orm-php_pdf.pdf','Comprendre lien ORM/PHP','Noter choix technique provisoire'],
+['Jeudi','Développer la partie back-end → Développer des sites web dynamiques avec PHP → securite_web.pdf','Sécuriser formulaires PHP de base','Ajouter risques principaux'],
+['Vendredi','Développer la partie back-end → Développer des sites web dynamiques avec PHP → expressions-regulieres_web.pdf','Valider champs téléphone/email si utile','Compléter validation données'],
+['Samedi','Développer la partie back-end → Projet fil rouge - Développement back-end → securiser-acces-donnees_pdf.pdf','Préparer logique accès aux données','Captures CRUD'],
+['Dimanche','Développer la partie back-end → Projet fil rouge - Développement back-end → tester-application-web_pdf.pdf','Tester création/modification commande','Bilan semaine 7']]
+},
+{id:'w08',title:'Semaine 8 — 30/11 au 06/12',objective:'Symfony bases.',todo:['Créer projet Symfony', 'Routes', 'Contrôleurs', 'Twig'],days:[
+['Lundi','Développer la partie back-end → Créer une application web avec le framework Symfony → bases-symfony-vf.pdf','Créer projet Symfony AtelierFlow','Expliquer choix Symfony'],
+['Mardi','Développer la partie back-end → Créer une application web avec le framework Symfony → modele-mvc (1).pdf','Comprendre MVC dans ton projet','Décrire architecture'],
+['Mercredi','Développer la partie back-end → Créer une application web avec le framework Symfony → le-routing.pdf','Créer routes dashboard, commandes, client','Captures routes'],
+['Jeudi','Développer la partie back-end → Créer une application web avec le framework Symfony → controleurs-vf.pdf','Créer contrôleurs principaux','Extrait code contrôleur'],
+['Vendredi','Développer la partie back-end → Créer une application web avec le framework Symfony → moteur-templat-twig.pdf','Créer vues Twig','Captures vues'],
+['Samedi','Développer la partie back-end → Créer une application web avec le framework Symfony → profiler-vf.pdf','Utiliser profiler pour comprendre erreurs','Ajouter notes debug'],
+['Dimanche','Développer la partie back-end → Créer une application web avec le framework Symfony → validation-symfony.pdf','Préparer validations formulaires','Bilan semaine 8']]
+},
+{id:'w09',title:'Semaine 9 — 07/12 au 13/12',objective:'Symfony entités, rôles et métier.',todo:['Entités', 'Rôles', 'Espaces utilisateur'],days:[
+['Lundi','Développer la partie back-end → Créer une application web avec le framework Symfony → entites-vf.pdf','Créer entités User, Client, Commande, Paiement, Etape','Mettre schéma entités'],
+['Mardi','Développer la partie back-end → Créer une application web avec le framework Symfony → validation-symfony.pdf','Valider données commande et paiement','Expliquer règles de validation'],
+['Mercredi','Développer la partie back-end → Créer une application web avec le framework Symfony → event-dispatcher-vf.pdf','Prévoir événement commande prête / retard','Décrire règles métier serveur'],
+['Jeudi','Développer la partie back-end → Projet fil rouge - Développement back-end → securiser-acces-donnees_pdf.pdf','Séparer accès responsable/couturier/client','Partie gestion des rôles'],
+['Vendredi','Développer la partie back-end → Projet fil rouge - Développement back-end → documenter-api_pdf.pdf','Documenter routes importantes','Ajouter tableau routes'],
+['Samedi','Développer la partie back-end → Créer une application web avec le framework Symfony → composant-mailer.pdf','Prévoir notification client prête/retard si possible','Noter évolution possible'],
+['Dimanche','Développer la partie back-end → Projet fil rouge - Développement back-end → tester-application-web_pdf.pdf','Tester espaces utilisateurs','Bilan semaine 9']]
+},
+{id:'w10',title:'Semaine 10 — 14/12 au 20/12',objective:'Sécurité application et base.',todo:['Authentification', 'Autorisations', 'Protection données'],days:[
+['Lundi','Développer la partie front-end → Sécuriser ses applications web → principales-failles-securite_pdf.pdf','Lister failles possibles AtelierFlow','Créer partie sécurité'],
+['Mardi','Développer la partie front-end → Sécuriser ses applications web → anal-secur-eval-vulner-app-web_pdf.pdf','Analyser risques : accès client, paiement, données perso','Compléter analyse risques'],
+['Mercredi','Développer la partie front-end → Sécuriser ses applications web → guides-tests_web.pdf','Préparer tests sécurité simples','Tableau tests sécurité'],
+['Jeudi','Développer la partie back-end → Sécuriser ses bases de données → failles-liees-bdd-cote-develop_web.pdf','Vérifier requêtes et accès BDD','Expliquer protection BDD'],
+['Vendredi','Développer la partie back-end → Sécuriser ses bases de données → failles-xss_pdf.pdf','Vérifier affichage données utilisateur','Noter protection XSS'],
+['Samedi','Développer la partie back-end → Sécuriser ses bases de données → attaque-brute-force_pdf.pdf','Prévoir protection connexion','Ajouter sécurité authentification'],
+['Dimanche','Développer la partie back-end → Sécuriser ses bases de données → cadre-legal-chiffrement-donnee_web.pdf','Noter données personnelles à protéger','Bilan semaine 10']]
+},
+{id:'w11',title:'Semaine 11 — 21/12 au 27/12',objective:'Tests et qualité.',todo:['Scénarios de test', 'Corrections', 'Dossier tests'],days:[
+['Lundi','Développer la partie back-end → Préparer un environnement de test → bases-environnement-test-web.pdf','Créer environnement test simple','Créer section tests'],
+['Mardi','Développer la partie back-end → Préparer un environnement de test → methode-agile-develop-logiciel_pdf.pdf','Organiser tests par scénario','Tableau de tests'],
+['Mercredi','Développer la partie back-end → Préparer un environnement de test → mise-place-integration-continu_pdf.pdf','Comprendre CI GitHub Actions','Noter possibilité CI'],
+['Jeudi','Développer la partie back-end → Préparer un environnement de test → mise-place-livraison-cd_pdf.pdf','Comprendre livraison continue','Relier au déploiement'],
+['Vendredi','Développer la partie front-end → Sécuriser une application web - failles tests et deploiement','Tester failles + parcours complet','Ajouter résultats'],
+['Samedi','Développer la partie back-end → Projet fil rouge - Développement back-end → tester-application-web_pdf.pdf','Tester création commande/paiement/statut','Captures tests'],
+['Dimanche','Développer la partie back-end → Préparer un environnement de test → demarche-devops_web.pdf','Faire corrections importantes','Bilan semaine 11']]
+},
+{id:'w12',title:'Semaine 12 — 28/12 au 03/01',objective:'Déploiement.',todo:['Mettre en ligne', 'Documenter installation', 'Variables environnement'],days:[
+['Lundi','Développer la partie front-end → Déployer son application web → presentation-utilisatio-fly-io_pdf.pdf','Préparer déploiement','Créer section déploiement'],
+['Mardi','Développer la partie front-end → Déployer son application web → presentation-utilis-planethost_pdf.pdf','Comparer option hébergement','Noter choix retenu'],
+['Mercredi','Développer la partie front-end → Déployer une application web sur les plateformes modernes → module.pdf','Préparer variables environnement','Documenter configuration'],
+['Jeudi','Développer la partie front-end → Créer un site web avec HTML et CSS → deployer-site-web_web.pdf','Vérifier déploiement front','Ajouter lien/capture'],
+['Vendredi','Développer la partie front-end → Sécuriser ses applications web → securiser-publica-applicat-web_web.pdf','Sécuriser publication','Compléter sécurité déploiement'],
+['Samedi','Développer la partie back-end → Sécuriser son infrastructure → test-mise-securite-deploiement_pdf.pdf','Tester l’application en ligne','Captures démo'],
+['Dimanche','Développer la partie back-end → Sécuriser son infrastructure → mis-jour-docum-techn-apre-test_web.pdf','Mettre à jour doc technique','Bilan semaine 12']]
+},
+{id:'w13',title:'Semaine 13 — 04/01 au 10/01',objective:'Docker / conteneurs si possible.',todo:['Dockerfile', 'Docker Compose', 'Documentation'],days:[
+['Lundi','Développer la partie front-end → Gérer des conteneurs → outil-docker-principe-objectif_web.pdf','Comprendre intérêt Docker pour AtelierFlow','Ajouter note environnement'],
+['Mardi','Développer la partie front-end → Gérer des conteneurs → dockerfile-instructions_pdf.pdf','Créer Dockerfile si possible','Documenter Dockerfile'],
+['Mercredi','Développer la partie front-end → Gérer des conteneurs → docker-compose-introduction_web.pdf','Préparer docker-compose','Capture configuration'],
+['Jeudi','Développer la partie front-end → Gérer des conteneurs → docker-compose-etude-cas_web.pdf','Tester stack app + BDD si possible','Noter limites'],
+['Vendredi','Développer la partie front-end → Conteneuriser une application avec Docker → gestion_cycle_vie_conteneurs.pdf','Lancer/arrêter/reconstruire conteneur','Ajouter procédure'],
+['Samedi','Développer la partie front-end → Conteneuriser une application avec Docker → orchestration_docker_compose.pdf','Améliorer compose','Captures'],
+['Dimanche','Développer la partie front-end → Conteneuriser une application avec Docker → publication_images_registre.pdf','Publication image si vraiment utile','Bilan semaine 13']]
+},
+{id:'w14',title:'Semaine 14 — 11/01 au 17/01',objective:'Finalisation application et dossier.',todo:['Captures propres', 'Extraits code', 'Annexes'],days:[
+['Lundi','Réussir ma formation → Se préparer aux examens → metho-doss-proj-devel-web-mobi_web.pdf','Relire structure dossier projet','Vérifier plan du dossier'],
+['Mardi','Réussir ma formation → Se préparer aux examens → methodo-dp_web.pdf','Ne pas mélanger DP et dossier projet','Vérifier cohérence'],
+['Mercredi','Développer la partie front-end → Réaliser une maquette avec Figma → creer-design-responsive-figma_pdf.pdf','Mettre maquettes/captures propres','Ajouter annexes maquette'],
+['Jeudi','Développer la partie front-end → Réaliser une maquette avec Figma → creer-protot-part-export-figma_web.pdf','Préparer prototype si utile','Capture prototype'],
+['Vendredi','Développer la partie front-end → Créer un site web avec HTML et CSS → valider-qualite-site_web.pdf','Vérifier qualité interface','Ajouter bilan qualité'],
+['Samedi','Développer la partie front-end → Créer un site web avec HTML et CSS → referencement-sites-web_web.pdf','Noter notions SEO/accessibilité utiles','Compléter conclusion technique'],
+['Dimanche','Réussir ma formation → Se préparer aux examens → entraine-question-professionne_pdf.pdf','Préparer questions jury','Bilan semaine 14']]
+},
+{id:'w15',title:'Semaine 15 — 18/01 au 24/01',objective:'Oral, démo et corrections finales.',todo:['Diaporama oral', 'Démo complète', 'Questions jury'],days:[
+['Lundi','Réussir ma formation → Se préparer aux examens → entraine-question-professionne_pdf.pdf','Préparer plan oral 40 min','Écrire introduction orale'],
+['Mardi','Développer la partie front-end → Participer à des projets web → outils-collabor-partage-ressou_web.pdf','Préparer support et liens GitHub','Compléter annexes'],
+['Mercredi','Développer la partie back-end → Projet fil rouge - Développement back-end → documenter-api_pdf.pdf','Préparer explication technique back','Ajouter tableau routes/API'],
+['Jeudi','Développer la partie front-end → Sécuriser ses applications web → guides-tests_web.pdf','Préparer réponses sécurité/tests','Compléter tableau tests'],
+['Vendredi','Développer la partie back-end → Préparer un environnement de test → demarche-devops_web.pdf','Expliquer déploiement et environnement','Préparer réponses jury'],
+['Samedi','Réussir ma formation → Se préparer aux examens → metho-doss-proj-devel-web-mobi_web.pdf','Répéter oral complet','Corriger dossier'],
+['Dimanche','Réussir ma formation → Se préparer aux examens → entraine-question-professionne_pdf.pdf','Démo finale chronométrée','Bilan semaine 15']]
+},
+{id:'w16',title:'Semaine courte — 25/01 au 29/01',objective:'Marge de sécurité.',todo:['Export PDF', 'Vérification finale', 'Repos avant examen'],days:[
+['Lundi','Réussir ma formation → Se préparer aux examens → metho-doss-proj-devel-web-mobi_web.pdf','Relire dossier final','Corriger fautes'],
+['Mardi','Réussir ma formation → Se préparer aux examens → methodo-dp_web.pdf','Vérifier documents demandés','Préparer annexes'],
+['Mercredi','Tous modules importants à revoir selon faiblesse','Tester démo finale','Vérifier liens GitHub/déploiement'],
+['Jeudi','Réussir ma formation → Se préparer aux examens → entraine-question-professionne_pdf.pdf','Répétition orale courte','Préparer réponses aux questions difficiles'],
+['Vendredi','Repos + relecture légère','Ne plus casser le code','Dernier check uniquement']]
+}
 ];
-const storeKey='studi-plan-v3-clear-paths';let state=JSON.parse(localStorage.getItem(storeKey)||'{}');const weeksEl=document.getElementById('weeks');const search=document.getElementById('search');const filter=document.getElementById('filter');
-function save(){localStorage.setItem(storeKey,JSON.stringify(state))}function id(...a){return a.join('__').replace(/\W+/g,'_')}function checked(k){return state[k]?.done===true}function setDone(k,v){state[k]={...(state[k]||{}),done:v};save();renderProgress()}
-function render(){weeksEl.innerHTML='';const q=search.value.toLowerCase();for(const w of plan){const allKeys=w.days.flatMap((d,i)=>[id(w.id,i,'cours'),id(w.id,i,'atelier'),id(w.id,i,'dossier')]);const doneCount=allKeys.filter(checked).length;const isDone=doneCount===allKeys.length;const hay=JSON.stringify(w).toLowerCase();if(q&&!hay.includes(q))continue;if(filter.value==='done'&&!isDone)continue;if(filter.value==='todo'&&isDone)continue;const det=document.createElement('details');det.className='week';if(w.id==='w01')det.open=true;det.innerHTML=`<summary><div class="week-head"><div><h2 class="week-title">${w.title}</h2><p class="week-objective">${w.objective}</p></div><span class="badge">${doneCount}/${allKeys.length}</span></div></summary><div class="week-body"><div class="section full"><h3>Plan jour par jour avec chemin Studi exact</h3><p class="mini">Lis la ligne bleue : elle te dit où cliquer dans Studi, puis quel fichier/thème ouvrir.</p><div class="days">${w.days.map((d,i)=>dayHTML(w,d,i)).join('')}</div></div><div class="section full"><h3>Notes de la semaine</h3><textarea class="notes" data-note="${w.id}" placeholder="Ce que j’ai fait, blocages, questions à poser…">${state[w.id]?.note||''}</textarea></div></div>`;weeksEl.appendChild(det)}document.querySelectorAll('input[type=checkbox]').forEach(c=>c.addEventListener('change',e=>setDone(e.target.dataset.key,e.target.checked)));document.querySelectorAll('textarea[data-note]').forEach(t=>t.addEventListener('input',e=>{const k=e.target.dataset.note;state[k]={...(state[k]||{}),note:e.target.value};save()}));renderProgress()}
-function dayHTML(w,d,i){const [day,path,atelier,dossier]=d;const k1=id(w.id,i,'cours'),k2=id(w.id,i,'atelier'),k3=id(w.id,i,'dossier');return `<article class="day"><h4>${day}</h4><label class="check"><input type="checkbox" data-key="${k1}" ${checked(k1)?'checked':''}><span><span class="tag cours">Cours</span><span class="task-title">Où aller dans Studi</span><div class="path">${path}</div></span></label><label class="check"><input type="checkbox" data-key="${k2}" ${checked(k2)?'checked':''}><span><span class="tag atelier">AtelierFlow</span>${atelier}</span></label><label class="check"><input type="checkbox" data-key="${k3}" ${checked(k3)?'checked':''}><span><span class="tag dossier">Dossier</span>${dossier}</span></label></article>`}
-function renderProgress(){const keys=plan.flatMap(w=>w.days.flatMap((d,i)=>[id(w.id,i,'cours'),id(w.id,i,'atelier'),id(w.id,i,'dossier')]));const done=keys.filter(checked).length;const pct=keys.length?Math.round(done/keys.length*100):0;document.getElementById('progressBar').style.width=pct+'%';document.getElementById('progressText').textContent=`${pct} % des tâches cochées (${done}/${keys.length}).`}
-search.addEventListener('input',render);filter.addEventListener('change',render);document.getElementById('openAll').addEventListener('click',()=>{document.querySelectorAll('details').forEach(d=>d.open=true)});document.getElementById('resetData').addEventListener('click',()=>{if(confirm('Réinitialiser toutes les coches et notes ?')){state={};save();render()}});document.getElementById('exportData').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='suivi-studi-atelierflow.json';a.click();URL.revokeObjectURL(a.href)});render();
+const stateKey='graduate-suivi-v4';let state=JSON.parse(localStorage.getItem(stateKey)||'{}');const weeksEl=document.getElementById('weeks'),searchEl=document.getElementById('search'),filterEl=document.getElementById('filter'),bar=document.getElementById('progressBar'),txt=document.getElementById('progressText');function save(){localStorage.setItem(stateKey,JSON.stringify(state));updateProgress()}function id(w,k,i){return `${w}-${k}-${i}`}function checkbox(w,k,i,text){const key=id(w,k,i);return `<label class="check"><input type="checkbox" data-key="${key}" ${state[key]?.done?'checked':''}><span>${text}</span></label>`}function render(){const q=searchEl.value.toLowerCase();weeksEl.innerHTML='';plan.forEach(w=>{const text=JSON.stringify(w).toLowerCase();if(q&&!text.includes(q))return;const all=[...w.todo,...w.days.flat()];const keys=all.map((_,i)=>id(w.id,'all',i));const doneCount=all.filter((_,i)=>state[id(w.id,'all',i)]?.done).length;const isDone=doneCount===all.length&&all.length>0;if(filterEl.value==='done'&&!isDone)return;if(filterEl.value==='todo'&&isDone)return;const details=document.createElement('details');details.className='week';details.open=w.id==='w01';details.innerHTML=`<summary><div class="week-head"><div><h2 class="week-title">${w.title}</h2><p class="week-objective">${w.objective}</p></div><span class="badge">${doneCount}/${all.length}</span></div></summary><div class="week-body"><div class="section"><h3>Objectifs de la semaine</h3>${w.todo.map((t,i)=>checkbox(w.id,'all',i,t)).join('')}</div><div class="section"><h3>Notes personnelles</h3><textarea data-note="${w.id}" placeholder="Ce que j’ai fait, mes blocages, mes questions…">${state['note-'+w.id]||''}</textarea></div><div class="section full"><h3>Plan jour par jour</h3><div class="days">${w.days.map((d,di)=>`<article class="day"><h4>${d[0]}</h4><div class="path"><small>Où aller dans Studi</small>${d[1]}</div><label class="check"><input type="checkbox" data-key="${id(w.id,'all',w.todo.length+di*3)}" ${state[id(w.id,'all',w.todo.length+di*3)]?.done?'checked':''}><span><span class="label">Cours lu/compris</span>${d[1]}</span></label><label class="check task"><input type="checkbox" data-key="${id(w.id,'all',w.todo.length+di*3+1)}" ${state[id(w.id,'all',w.todo.length+di*3+1)]?.done?'checked':''}><span><span class="label">AtelierFlow</span>${d[2]}</span></label><label class="check dossier"><input type="checkbox" data-key="${id(w.id,'all',w.todo.length+di*3+2)}" ${state[id(w.id,'all',w.todo.length+di*3+2)]?.done?'checked':''}><span><span class="label">Dossier projet</span>${d[3]}</span></label></article>`).join('')}</div></div></div>`;weeksEl.appendChild(details)});bind();updateProgress()}function bind(){document.querySelectorAll('input[type="checkbox"]').forEach(c=>c.onchange=e=>{state[e.target.dataset.key]={done:e.target.checked,at:new Date().toISOString()};save()});document.querySelectorAll('textarea[data-note]').forEach(t=>t.oninput=e=>{state['note-'+e.target.dataset.note]=e.target.value;save()})}function updateProgress(){const boxes=[...document.querySelectorAll('input[type="checkbox"]')];const done=boxes.filter(b=>b.checked).length;const pct=boxes.length?Math.round(done/boxes.length*100):0;bar.style.width=pct+'%';txt.textContent=`${pct} % des tâches visibles cochées (${done}/${boxes.length}).`}searchEl.oninput=render;filterEl.onchange=render;document.getElementById('openAll').onclick=()=>document.querySelectorAll('details.week').forEach(d=>d.open=true);document.getElementById('resetData').onclick=()=>{if(confirm('Tout réinitialiser ?')){state={};save();render()}};document.getElementById('exportData').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='suivi-formation-atelierflow.json';a.click()};render();
 </script>
-</body></html>
+</body>
+</html>
