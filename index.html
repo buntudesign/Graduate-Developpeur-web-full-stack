@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suivi Graduate Développeur Web Full Stack</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #f9fafb;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --accent: #8b5cf6;
+      --accent-2: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border: rgba(255,255,255,.12);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e1b4b 0, var(--bg) 38%, #020617 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(15, 23, 42, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wrap {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      font-size: clamp(1.35rem, 5vw, 2.4rem);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: .98rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--soft);
+      font-size: .78rem;
+    }
+
+    .stat strong {
+      font-size: 1.05rem;
+    }
+
+    .progress-shell {
+      margin-top: 18px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--border);
+      height: 18px;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #06b6d4, var(--accent-2));
+      transition: width .25s ease;
+    }
+
+    .progress-text {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .toolbar {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+      margin: 18px 0;
+    }
+
+    input[type="search"], select, textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, .9);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    button {
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      color: white;
+      background: var(--accent);
+    }
+
+    button.secondary { background: var(--panel-2); }
+    button.danger { background: var(--danger); }
+
+    .layout {
+      display: grid;
+      gap: 16px;
+    }
+
+    details.week {
+      background: rgba(17, 24, 39, .92);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    .week-head {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .week-title {
+      font-size: 1.05rem;
+      margin: 0 0 6px;
+    }
+
+    .week-objective {
+      color: var(--muted);
+      font-size: .9rem;
+      margin: 0;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: .78rem;
+      color: white;
+      background: rgba(139, 92, 246, .32);
+      border: 1px solid rgba(139, 92, 246, .7);
+    }
+
+    .week-body {
+      padding: 0 16px 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .section {
+      background: rgba(255,255,255,.045);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .section h3 {
+      margin-bottom: 10px;
+      font-size: .98rem;
+      color: #e0e7ff;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    label.check {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      background: rgba(15,23,42,.72);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent-2);
+      margin-top: 2px;
+    }
+
+    .days {
+      display: grid;
+      gap: 12px;
+    }
+
+    .day {
+      background: rgba(15, 23, 42, .75);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .day h4 {
+      margin: 0 0 10px;
+      color: #fef3c7;
+      font-size: 1rem;
+    }
+
+    .day-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .task-line {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .task-tag {
+      display: inline-block;
+      margin-right: 6px;
+      color: #bfdbfe;
+      font-weight: 800;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .notes {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .hidden { display: none !important; }
+
+    footer {
+      color: var(--soft);
+      padding: 24px 18px 40px;
+      text-align: center;
+      font-size: .85rem;
+    }
+
+    @media (min-width: 760px) {
+      .stats { grid-template-columns: repeat(4, 1fr); }
+      .toolbar { grid-template-columns: 1fr 220px 160px; }
+      .week-body { grid-template-columns: 1fr 1fr; }
+      .week-body .full { grid-column: 1 / -1; }
+      .days { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Suivi Graduate Développeur Web Full Stack</h1>
+      <p class="subtitle">Plan de rattrapage Studi + projet AtelierFlow — suivi quotidien mobile.</p>
+      <div class="stats">
+        <div class="stat"><span>Heures faites</span><strong>61h14 / 380h</strong></div>
+        <div class="stat"><span>Retard actuel</span><strong>147h06</strong></div>
+        <div class="stat"><span>Jours restants</span><strong>109</strong></div>
+        <div class="stat"><span>Objectif journalier</span><strong>3h30 à 4h</strong></div>
+      </div>
+      <div class="progress-shell" aria-label="progression globale"><div id="progressBar" class="progress-bar"></div></div>
+      <p id="progressText" class="progress-text">0 % des tâches cochées.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="toolbar" aria-label="outils de filtrage">
+      <input id="search" type="search" placeholder="Rechercher un cours, une tâche, une semaine…" />
+      <select id="filter">
+        <option value="all">Toutes les semaines</option>
+        <option value="todo">Semaines non terminées</option>
+        <option value="done">Semaines terminées</option>
+      </select>
+      <button id="openAll" class="secondary" type="button">Ouvrir tout</button>
+    </section>
+
+    <section id="weeks" class="layout"></section>
+
+    <div class="actions">
+      <button id="exportData" class="secondary" type="button">Exporter suivi</button>
+      <button id="resetData" class="danger" type="button">Réinitialiser</button>
+    </div>
+  </main>
+
+  <footer>
+    Les cases cochées sont sauvegardées dans ce navigateur avec localStorage. Si tu changes de téléphone ou de navigateur, exporte ton suivi avant.
+  </footer>
+
+  <script>
+    const plan = [
+      {
+        id: 'w01',
+        title: 'Semaine 1 — 12/10 au 18/10',
+        objective: 'Finir le cadrage du projet + avancer HTML/CSS.',
+        courses: ['Créer un site web avec HTML & CSS', 'Introduction à la programmation'],
+        atelier: ['Définir les utilisateurs : responsable atelier, couturier, client, brodeur', 'Définir les fonctionnalités principales', 'Définir les règles métier : urgence, retard, paiement, brodeur absent, commande en pause', 'Commencer les premiers écrans simples en HTML/CSS'],
+        dossier: ['Titre du projet', 'Résumé', 'Introduction', 'Contexte du besoin', 'Objectifs de l’application'],
+        days: [
+          ['Lundi', 'HTML/CSS : reprendre le module et noter les points clés', 'Créer une première page AtelierFlow avec header, titre et tableau commandes', 'Copier le titre, résumé, introduction et contexte dans le dossier'],
+          ['Mardi', 'HTML/CSS : structure de page et mise en forme', 'Créer la carte commande avec statut, client, date et reste à payer', 'Rédiger les objectifs de l’application'],
+          ['Mercredi', 'HTML/CSS : responsive mobile', 'Adapter la page pour téléphone', 'Lister les utilisateurs du projet'],
+          ['Jeudi', 'Introduction programmation : variables/conditions', 'Préparer les statuts de commande', 'Écrire les fonctionnalités principales'],
+          ['Vendredi', 'Introduction programmation : logique simple', 'Faire une version statique du tableau de bord atelier', 'Écrire les règles métier'],
+          ['Samedi', 'Rattrapage HTML/CSS', 'Nettoyer l’interface et faire captures', 'Classer les captures dans docs/captures'],
+          ['Dimanche', 'Relecture légère', 'Faire un point sur ce qui marche', 'Mettre à jour le suivi et préparer semaine 2']
+        ]
+      },
+      {
+        id: 'w02',
+        title: 'Semaine 2 — 19/10 au 25/10',
+        objective: 'Base de données et logique métier.',
+        courses: ['Introduction aux bases de données', 'Concevoir une base de données relationnelle', 'Créer et administrer une base de données en SQL'],
+        atelier: ['Faire le MCD ou schéma des données', 'Créer les entités : client, commande, tenue, couturier, étape, paiement, utilisateur, brodeur', 'Écrire les premières tables SQL'],
+        dossier: ['Partie analyse des données', 'Explication du choix des tables', 'Ajouter un premier schéma de base de données'],
+        days: [
+          ['Lundi', 'Introduction bases de données : notions principales', 'Lister toutes les données utiles AtelierFlow', 'Créer une section “analyse des données”'],
+          ['Mardi', 'Concevoir une BDD relationnelle : entités/relations', 'Faire le premier MCD', 'Expliquer les entités principales'],
+          ['Mercredi', 'SQL : tables et types de données', 'Écrire les tables clients, commandes, utilisateurs', 'Ajouter le schéma dans le dossier'],
+          ['Jeudi', 'SQL : clés primaires et étrangères', 'Ajouter paiements, étapes, couturiers, brodeurs', 'Expliquer les relations'],
+          ['Vendredi', 'SQL : INSERT/SELECT', 'Créer un jeu de données', 'Préparer captures des requêtes'],
+          ['Samedi', 'SQL : UPDATE/DELETE', 'Tester changement de statut et paiement', 'Ajouter exemples de requêtes'],
+          ['Dimanche', 'Relecture bases de données', 'Corriger le schéma', 'Faire bilan semaine 2']
+        ]
+      },
+      {
+        id: 'w03',
+        title: 'Semaine 3 — 26/10 au 01/11',
+        objective: 'JavaScript de base + écrans dynamiques.',
+        courses: ['Débuter avec JavaScript'],
+        atelier: ['Faire une page tableau de bord atelier', 'Afficher une liste de commandes', 'Ajouter changement de statut côté interface', 'Faire un faux suivi client en JavaScript'],
+        dossier: ['Partie fonctionnalités prévues', 'User stories principales', 'Captures des premiers écrans'],
+        days: [
+          ['Lundi', 'JavaScript : variables et DOM', 'Afficher dynamiquement des commandes', 'Créer section fonctionnalités prévues'],
+          ['Mardi', 'JavaScript : événements', 'Bouton voir détail commande', 'Écrire 3 user stories client'],
+          ['Mercredi', 'JavaScript : conditions', 'Changer un statut commande', 'Écrire 3 user stories responsable'],
+          ['Jeudi', 'JavaScript : tableaux', 'Stocker plusieurs commandes fictives', 'Écrire 3 user stories couturier'],
+          ['Vendredi', 'JavaScript : fonctions', 'Créer fonction calcul reste à payer', 'Ajouter captures écrans'],
+          ['Samedi', 'Exercice JS + correction', 'Améliorer suivi client', 'Relire user stories'],
+          ['Dimanche', 'Bilan JS débutant', 'Faire démo locale simple', 'Mettre à jour dossier']
+        ]
+      },
+      {
+        id: 'w04',
+        title: 'Semaine 4 — 02/11 au 08/11',
+        objective: 'JavaScript plus solide + parcours utilisateur.',
+        courses: ['Programmer avec JavaScript'],
+        atelier: ['Ajouter boutons démarrer, pause, terminer', 'Calcul du reste à payer', 'Affichage d’un retard', 'Parcours client : consulter sa commande'],
+        dossier: ['Partie parcours utilisateur', 'User stories avec critères d’acceptation'],
+        days: [
+          ['Lundi', 'JS : fonctions avancées', 'Bouton démarrer une étape', 'Décrire parcours responsable'],
+          ['Mardi', 'JS : objets', 'Structurer objet commande', 'Décrire parcours couturier'],
+          ['Mercredi', 'JS : dates', 'Détecter une commande en retard', 'Décrire parcours client'],
+          ['Jeudi', 'JS : localStorage', 'Sauvegarder localement des données de démo', 'Ajouter critères acceptation'],
+          ['Vendredi', 'JS : formulaires', 'Formulaire ajout commande', 'Captures formulaires'],
+          ['Samedi', 'JS : révision', 'Tester tout le parcours client', 'Corriger dossier'],
+          ['Dimanche', 'Bilan JS', 'Préparer version propre', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w05',
+        title: 'Semaine 5 — 09/11 au 15/11',
+        objective: 'Git/GitHub + projet propre.',
+        courses: ['Utiliser Git et Github pour gérer son code source'],
+        atelier: ['Créer ou organiser le dépôt GitHub', 'Créer dossiers front, back, docs, captures', 'Faire des commits propres', 'Écrire un premier README'],
+        dossier: ['Partie environnement de travail', 'Expliquer VS Code, Git, GitHub, navigateur, Figma, serveur local'],
+        days: [
+          ['Lundi', 'Git : init, add, commit', 'Faire le premier commit propre', 'Noter les outils utilisés'],
+          ['Mardi', 'GitHub : repository et push', 'Pousser le projet sur GitHub', 'Capturer le repo GitHub'],
+          ['Mercredi', 'Branches Git', 'Créer branche dev si besoin', 'Expliquer organisation du repo'],
+          ['Jeudi', 'README', 'Écrire README clair', 'Ajouter partie environnement'],
+          ['Vendredi', 'Historique et bonnes pratiques', 'Faire commits par fonctionnalité', 'Ajouter capture commits'],
+          ['Samedi', 'Rattrapage Git', 'Nettoyer fichiers', 'Relire partie environnement'],
+          ['Dimanche', 'Bilan GitHub', 'Vérifier repo accessible', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w06',
+        title: 'Semaine 6 — 16/11 au 22/11',
+        objective: 'PHP dynamique.',
+        courses: ['Développer des sites web dynamiques avec PHP'],
+        atelier: ['Créer pages PHP simples : liste, détail, formulaire commande, formulaire paiement', 'Commencer à connecter PHP avec les données'],
+        dossier: ['Partie développement back-end', 'Expliquer pourquoi il faut un back-end'],
+        days: [
+          ['Lundi', 'PHP : syntaxe et variables', 'Créer page liste commandes PHP', 'Créer section back-end'],
+          ['Mardi', 'PHP : conditions', 'Afficher statut commande', 'Expliquer rôle du serveur'],
+          ['Mercredi', 'PHP : tableaux', 'Afficher plusieurs commandes', 'Ajouter capture code'],
+          ['Jeudi', 'PHP : formulaires', 'Formulaire ajout commande', 'Décrire traitement formulaire'],
+          ['Vendredi', 'PHP : fichiers ou données', 'Page détail commande', 'Ajouter capture rendu'],
+          ['Samedi', 'PHP : révision', 'Formulaire paiement', 'Compléter partie back-end'],
+          ['Dimanche', 'Bilan PHP', 'Tester pages PHP', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w07',
+        title: 'Semaine 7 — 23/11 au 29/11',
+        objective: 'PHP + SQL ensemble.',
+        courses: ['Continuer PHP', 'Reprendre SQL si besoin'],
+        atelier: ['Connecter PHP à la base de données', 'Créer une commande', 'Afficher les commandes', 'Modifier un statut', 'Ajouter un paiement', 'Calculer le reste à payer'],
+        dossier: ['Ajouter extraits PHP/SQL', 'Expliquer opérations CRUD'],
+        days: [
+          ['Lundi', 'PDO connexion BDD', 'Connecter PHP à SQL', 'Expliquer connexion BDD'],
+          ['Mardi', 'SELECT avec PHP', 'Afficher commandes depuis BDD', 'Capture SELECT'],
+          ['Mercredi', 'INSERT avec PHP', 'Créer commande via formulaire', 'Capture formulaire'],
+          ['Jeudi', 'UPDATE avec PHP', 'Modifier statut commande', 'Expliquer UPDATE'],
+          ['Vendredi', 'Paiements SQL', 'Ajouter paiement et calcul reste', 'Capture calcul'],
+          ['Samedi', 'CRUD révision', 'Tester création/lecture/modification', 'Ajouter tableau CRUD'],
+          ['Dimanche', 'Bilan PHP+SQL', 'Corriger bugs', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w08',
+        title: 'Semaine 8 — 30/11 au 06/12',
+        objective: 'Symfony, début propre.',
+        courses: ['Créer une application web avec le framework Symfony'],
+        atelier: ['Créer projet Symfony', 'Installer environnement', 'Créer entités User, Client, Commande, Paiement, Étape', 'Créer premières routes'],
+        dossier: ['Expliquer pourquoi Symfony est utilisé', 'Partie architecture de l’application'],
+        days: [
+          ['Lundi', 'Symfony : installation', 'Créer projet Symfony AtelierFlow', 'Noter prérequis installation'],
+          ['Mardi', 'Symfony : structure projet', 'Comprendre dossiers src/templates/config', 'Décrire architecture'],
+          ['Mercredi', 'Doctrine : entités', 'Créer entité Commande', 'Capture entité'],
+          ['Jeudi', 'Doctrine : relations', 'Créer Client/Paiement/Étape', 'Expliquer relations'],
+          ['Vendredi', 'Routes et contrôleurs', 'Créer route tableau de bord', 'Capture contrôleur'],
+          ['Samedi', 'Templates Twig', 'Afficher commandes', 'Ajouter capture rendu'],
+          ['Dimanche', 'Bilan Symfony début', 'Commit version Symfony', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w09',
+        title: 'Semaine 9 — 07/12 au 13/12',
+        objective: 'Symfony + vraie logique métier.',
+        courses: ['Continuer Symfony', 'Projet fil rouge - Développement back-end'],
+        atelier: ['Créer les rôles responsable, couturier, client', 'Faire espace responsable atelier', 'Faire espace couturier', 'Faire espace client', 'Gérer statuts commandes'],
+        dossier: ['Partie gestion des rôles', 'Partie règles métier côté serveur'],
+        days: [
+          ['Lundi', 'Symfony sécurité : utilisateurs', 'Créer User et rôles', 'Décrire rôles'],
+          ['Mardi', 'Contrôleurs par rôle', 'Espace responsable', 'Capture dashboard responsable'],
+          ['Mercredi', 'Espace couturier', 'Liste tâches couturier', 'Décrire usage couturier'],
+          ['Jeudi', 'Espace client', 'Suivi commande client', 'Décrire usage client'],
+          ['Vendredi', 'Logique métier', 'Changer statuts avec règles', 'Écrire règles serveur'],
+          ['Samedi', 'Symfony révision', 'Tester les 3 espaces', 'Ajouter captures'],
+          ['Dimanche', 'Bilan rôles', 'Corriger droits visibles', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w10',
+        title: 'Semaine 10 — 14/12 au 20/12',
+        objective: 'Sécurité des données et accès.',
+        courses: ['Sécuriser ses bases de données', 'Sécuriser ses applications web'],
+        atelier: ['Sécuriser les formulaires', 'Vérifier droits d’accès', 'Valider montant total, avance, date livraison, statut'],
+        dossier: ['Partie sécurité : authentification, autorisation, protection des données, validation des entrées'],
+        days: [
+          ['Lundi', 'Sécurité BDD : injections SQL', 'Vérifier requêtes préparées/Doctrine', 'Expliquer protection SQL'],
+          ['Mardi', 'Sécurité formulaires', 'Valider champs obligatoires', 'Capture validations'],
+          ['Mercredi', 'Authentification', 'Vérifier connexion', 'Décrire authentification'],
+          ['Jeudi', 'Autorisation', 'Client ne voit que ses commandes', 'Décrire autorisations'],
+          ['Vendredi', 'Données sensibles', 'Ne pas exposer infos inutiles', 'Écrire partie données'],
+          ['Samedi', 'Tests sécurité simples', 'Essayer accès interdit', 'Tableau cas sécurité'],
+          ['Dimanche', 'Bilan sécurité', 'Corriger failles visibles', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w11',
+        title: 'Semaine 11 — 21/12 au 27/12',
+        objective: 'Tests et fiabilisation.',
+        courses: ['Préparer un environnement de test', 'Sécuriser une application web : failles, tests et déploiement'],
+        atelier: ['Tester création commande', 'Paiement partiel/complet', 'Commande urgente/en retard', 'Changement statut', 'Accès client', 'Noter et corriger bugs'],
+        dossier: ['Partie tests', 'Tableau scénario / résultat attendu / résultat obtenu / correction'],
+        days: [
+          ['Lundi', 'Tests : principes', 'Écrire liste scénarios', 'Créer tableau tests'],
+          ['Mardi', 'Test création commande', 'Tester formulaire commande', 'Remplir résultat test'],
+          ['Mercredi', 'Test paiements', 'Tester acompte et paiement complet', 'Remplir résultat test'],
+          ['Jeudi', 'Test urgences/retards', 'Tester urgence et retard', 'Remplir résultat test'],
+          ['Vendredi', 'Test accès utilisateurs', 'Tester client/couturier/responsable', 'Remplir résultat test'],
+          ['Samedi', 'Correction bugs', 'Corriger les plus gros problèmes', 'Ajouter captures tests'],
+          ['Dimanche', 'Bilan tests', 'Relire tableau de tests', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w12',
+        title: 'Semaine 12 — 28/12 au 03/01',
+        objective: 'Déploiement.',
+        courses: ['Déployer son application web', 'Déployer une application web sur les plateformes modernes'],
+        atelier: ['Préparer déploiement', 'Variables d’environnement', 'Vérifier base de données', 'Faire première version en ligne ou documenter le déploiement'],
+        dossier: ['Partie déploiement : prérequis, installation, configuration, lancement, accès application'],
+        days: [
+          ['Lundi', 'Déploiement : notions', 'Lister prérequis', 'Créer section déploiement'],
+          ['Mardi', 'Variables environnement', 'Préparer .env exemple', 'Documenter variables'],
+          ['Mercredi', 'Base en production', 'Préparer données de démo', 'Documenter BDD'],
+          ['Jeudi', 'Plateforme déploiement', 'Tester mise en ligne si possible', 'Captures plateforme'],
+          ['Vendredi', 'Procédure installation', 'Écrire étapes lancement local', 'Ajouter README installation'],
+          ['Samedi', 'Correction déploiement', 'Tester depuis zéro', 'Compléter dossier'],
+          ['Dimanche', 'Bilan déploiement', 'Vérifier liens', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w13',
+        title: 'Semaine 13 — 04/01 au 10/01',
+        objective: 'Docker / conteneurs si possible.',
+        courses: ['Gérer des conteneurs', 'Conteneuriser une application avec Docker'],
+        atelier: ['Dockeriser si possible', 'Sinon documenter ce qui serait conteneurisé', 'Préparer environnement reproductible'],
+        dossier: ['Partie optionnelle environnement technique', 'Ajouter Docker seulement si vraiment réalisé'],
+        days: [
+          ['Lundi', 'Docker : concepts', 'Comprendre conteneur/image', 'Noter utilité Docker'],
+          ['Mardi', 'Dockerfile ou docker-compose', 'Essayer configuration simple', 'Capturer tentative'],
+          ['Mercredi', 'BDD et conteneur', 'Voir si BDD peut être conteneurisée', 'Documenter choix'],
+          ['Jeudi', 'Tests environnement', 'Tester lancement projet', 'Ajouter limites'],
+          ['Vendredi', 'Décision', 'Garder Docker ou non selon résultat', 'Ne pas inventer si non fait'],
+          ['Samedi', 'Rattrapage', 'Finaliser environnement', 'Relire section'],
+          ['Dimanche', 'Bilan Docker', 'Mettre à jour repo', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w14',
+        title: 'Semaine 14 — 11/01 au 17/01',
+        objective: 'Finir le dossier projet.',
+        courses: ['Reprendre modules non terminés importants : sécurité, déploiement, tests, Git, SQL'],
+        atelier: ['Nettoyer l’application', 'Améliorer pages', 'Faire captures propres', 'Préparer jeu de démonstration'],
+        dossier: ['Finaliser introduction, résumé, développement, conclusion, annexes, captures, code, schémas'],
+        days: [
+          ['Lundi', 'Revoir Git/SQL', 'Nettoyer repo', 'Relire intro/résumé'],
+          ['Mardi', 'Revoir sécurité', 'Corriger accès', 'Finaliser sécurité'],
+          ['Mercredi', 'Revoir déploiement', 'Tester lancement', 'Finaliser déploiement'],
+          ['Jeudi', 'Revoir tests', 'Compléter tableau tests', 'Finaliser tests'],
+          ['Vendredi', 'Cours faibles', 'Améliorer interface', 'Ajouter captures finales'],
+          ['Samedi', 'Rattrapage général', 'Préparer démo complète', 'Finaliser annexes'],
+          ['Dimanche', 'Bilan dossier', 'Exporter brouillon', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w15',
+        title: 'Semaine 15 — 18/01 au 24/01',
+        objective: 'Oral + correction finale.',
+        courses: ['Se préparer aux examens', 'Revoir les modules faibles'],
+        atelier: ['Faire une démo complète', 'Préparer vidéo de secours si possible', 'Préparer réponses aux questions du jury'],
+        dossier: ['Relire tout le dossier', 'Corriger fautes', 'Vérifier compétences illustrées', 'Préparer diaporama oral'],
+        days: [
+          ['Lundi', 'Préparation examen', 'Faire démo complète', 'Créer plan oral'],
+          ['Mardi', 'Revoir points faibles', 'Corriger bug bloquant', 'Faire diaporama 1ère version'],
+          ['Mercredi', 'S’entraîner oral', 'Démo chronométrée', 'Améliorer slides'],
+          ['Jeudi', 'Questions jury', 'Préparer réponses techniques', 'Fiche questions/réponses'],
+          ['Vendredi', 'Relecture dossier', 'Dernières captures', 'Corriger fautes'],
+          ['Samedi', 'Simulation oral', 'Tester vidéo secours', 'Ajuster timing'],
+          ['Dimanche', 'Bilan final', 'Verrouiller version', 'Mettre à jour suivi']
+        ]
+      },
+      {
+        id: 'w16',
+        title: 'Semaine 16 courte — 25/01 au 29/01',
+        objective: 'Marge de sécurité.',
+        courses: ['Uniquement révisions ciblées'],
+        atelier: ['Dernières corrections', 'Vérification liens GitHub', 'Vérification démo'],
+        dossier: ['Export PDF', 'Impression si besoin', 'Annexes', 'Entraînement oral'],
+        days: [
+          ['Lundi', 'Révision ciblée', 'Vérifier application', 'Exporter dossier'],
+          ['Mardi', 'Révision sécurité/BDD', 'Vérifier GitHub', 'Préparer annexes'],
+          ['Mercredi', 'Révision oral', 'Démo complète', 'Impression si besoin'],
+          ['Jeudi', 'Repos actif', 'Dernier test', 'Dernière relecture'],
+          ['Vendredi', 'Préparation finale', 'Tout sauvegarder', 'Respirer et arriver prêt']
+        ]
+      }
+    ];
+
+    const stateKey = 'graduate-tracker-v1';
+    let state = JSON.parse(localStorage.getItem(stateKey) || '{}');
+
+    const weeksEl = document.getElementById('weeks');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const searchEl = document.getElementById('search');
+    const filterEl = document.getElementById('filter');
+
+    function keyFor(...parts) { return parts.join('::'); }
+
+    function save() {
+      localStorage.setItem(stateKey, JSON.stringify(state));
+      updateProgress();
+      applyFilters();
+    }
+
+    function checkbox(id, text) {
+      const checked = state[id] ? 'checked' : '';
+      return `<label class="check"><input type="checkbox" data-key="${id}" ${checked}><span>${text}</span></label>`;
+    }
+
+    function taskLine(id, tag, text) {
+      const checked = state[id] ? 'checked' : '';
+      return `<label class="task-line"><input type="checkbox" data-key="${id}" ${checked}><span><span class="task-tag">${tag}</span>${text}</span></label>`;
+    }
+
+    function render() {
+      weeksEl.innerHTML = plan.map((week, wIndex) => {
+        const courses = week.courses.map((x, i) => checkbox(keyFor(week.id, 'course', i), x)).join('');
+        const atelier = week.atelier.map((x, i) => checkbox(keyFor(week.id, 'atelier', i), x)).join('');
+        const dossier = week.dossier.map((x, i) => checkbox(keyFor(week.id, 'dossier', i), x)).join('');
+        const days = week.days.map((d, i) => `
+          <article class="day">
+            <h4>${d[0]}</h4>
+            <div class="day-grid">
+              ${taskLine(keyFor(week.id, 'day', i, 'course'), 'Cours', d[1])}
+              ${taskLine(keyFor(week.id, 'day', i, 'atelier'), 'AtelierFlow', d[2])}
+              ${taskLine(keyFor(week.id, 'day', i, 'dossier'), 'Dossier', d[3])}
+            </div>
+          </article>
+        `).join('');
+        const notesId = keyFor(week.id, 'notes');
+        return `
+          <details class="week" data-week="${week.id}" data-search="${(week.title + ' ' + week.objective + ' ' + week.courses.join(' ') + ' ' + week.atelier.join(' ') + ' ' + week.dossier.join(' ')).toLowerCase()}" ${wIndex === 0 ? 'open' : ''}>
+            <summary>
+              <div class="week-head">
+                <div>
+                  <h2 class="week-title">${week.title}</h2>
+                  <p class="week-objective">${week.objective}</p>
+                </div>
+                <span class="badge" id="badge-${week.id}">0 %</span>
+              </div>
+            </summary>
+            <div class="week-body">
+              <section class="section"><h3>Cours Studi à faire</h3><div class="check-list">${courses}</div></section>
+              <section class="section"><h3>À faire sur AtelierFlow</h3><div class="check-list">${atelier}</div></section>
+              <section class="section"><h3>Dossier projet</h3><div class="check-list">${dossier}</div></section>
+              <section class="section"><h3>Notes de la semaine</h3><textarea class="notes" data-note="${notesId}" placeholder="Ce que j’ai fait, ce qui bloque, les idées à reprendre…">${state[notesId] || ''}</textarea></section>
+              <section class="section full"><h3>Plan jour par jour</h3><div class="days">${days}</div></section>
+            </div>
+          </details>
+        `;
+      }).join('');
+
+      document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+        input.addEventListener('change', e => {
+          state[e.target.dataset.key] = e.target.checked;
+          save();
+        });
+      });
+
+      document.querySelectorAll('textarea[data-note]').forEach(area => {
+        area.addEventListener('input', e => {
+          state[e.target.dataset.note] = e.target.value;
+          localStorage.setItem(stateKey, JSON.stringify(state));
+        });
+      });
+
+      updateProgress();
+      applyFilters();
+    }
+
+    function allCheckboxKeysForWeek(week) {
+      const keys = [];
+      week.courses.forEach((_, i) => keys.push(keyFor(week.id, 'course', i)));
+      week.atelier.forEach((_, i) => keys.push(keyFor(week.id, 'atelier', i)));
+      week.dossier.forEach((_, i) => keys.push(keyFor(week.id, 'dossier', i)));
+      week.days.forEach((_, i) => {
+        keys.push(keyFor(week.id, 'day', i, 'course'));
+        keys.push(keyFor(week.id, 'day', i, 'atelier'));
+        keys.push(keyFor(week.id, 'day', i, 'dossier'));
+      });
+      return keys;
+    }
+
+    function updateProgress() {
+      const allKeys = plan.flatMap(allCheckboxKeysForWeek);
+      const done = allKeys.filter(k => state[k]).length;
+      const pct = allKeys.length ? Math.round((done / allKeys.length) * 100) : 0;
+      progressBar.style.width = pct + '%';
+      progressText.textContent = `${pct} % des tâches cochées (${done}/${allKeys.length}).`;
+
+      plan.forEach(week => {
+        const keys = allCheckboxKeysForWeek(week);
+        const d = keys.filter(k => state[k]).length;
+        const p = keys.length ? Math.round((d / keys.length) * 100) : 0;
+        const badge = document.getElementById('badge-' + week.id);
+        if (badge) badge.textContent = p + ' %';
+      });
+    }
+
+    function weekDone(week) {
+      const keys = allCheckboxKeysForWeek(week);
+      return keys.length > 0 && keys.every(k => state[k]);
+    }
+
+    function applyFilters() {
+      const q = searchEl.value.trim().toLowerCase();
+      const f = filterEl.value;
+      document.querySelectorAll('details.week').forEach(el => {
+        const week = plan.find(w => w.id === el.dataset.week);
+        const matchSearch = !q || el.dataset.search.includes(q);
+        const done = weekDone(week);
+        const matchFilter = f === 'all' || (f === 'done' && done) || (f === 'todo' && !done);
+        el.classList.toggle('hidden', !(matchSearch && matchFilter));
+      });
+    }
+
+    searchEl.addEventListener('input', applyFilters);
+    filterEl.addEventListener('change', applyFilters);
+
+    document.getElementById('openAll').addEventListener('click', () => {
+      const allOpen = Array.from(document.querySelectorAll('details.week:not(.hidden)')).every(d => d.open);
+      document.querySelectorAll('details.week:not(.hidden)').forEach(d => d.open = !allOpen);
+      document.getElementById('openAll').textContent = allOpen ? 'Ouvrir tout' : 'Fermer tout';
+    });
+
+    document.getElementById('resetData').addEventListener('click', () => {
+      if (confirm('Tu veux vraiment supprimer toutes les cases cochées et les notes ?')) {
+        state = {};
+        localStorage.removeItem(stateKey);
+        render();
+      }
+    });
+
+    document.getElementById('exportData').addEventListener('click', () => {
+      const data = JSON.stringify(state, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'suivi-graduate-studi.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    render();
+  </script>
+</body>
+</html>
